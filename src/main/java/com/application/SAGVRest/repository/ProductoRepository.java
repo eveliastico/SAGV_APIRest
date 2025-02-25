@@ -1,5 +1,6 @@
 package com.application.SAGVRest.repository;
 
+import com.application.SAGVRest.entidades.CategoriaProducto;
 import com.application.SAGVRest.entidades.Producto;
 import org.springframework.data.jpa.repository.Query;
 import org.springframework.data.repository.CrudRepository;
@@ -18,5 +19,7 @@ public interface ProductoRepository extends CrudRepository<Producto, Long> {
     List<Producto> findProductoByPrecioInRange(BigDecimal precioMin, BigDecimal precioMax);
 
     List<Producto> findProductosByPrecioBetween(BigDecimal precioMin, BigDecimal precioMax);
+
+    List<Producto> findProductosByCategoriaProducto(CategoriaProducto categoriaProducto);
 
 }

@@ -1,5 +1,6 @@
 package com.application.SAGVRest.persistence;
 
+import com.application.SAGVRest.entidades.CategoriaProducto;
 import com.application.SAGVRest.entidades.Producto;
 
 import java.math.BigDecimal;
@@ -17,6 +18,8 @@ public interface IProductoDAO {
     void save(Producto producto);
 
     void deleteById(Long id);
+
+    List<Producto> findProductosByCategoriaProducto(CategoriaProducto categoriaProducto);
 
 
 

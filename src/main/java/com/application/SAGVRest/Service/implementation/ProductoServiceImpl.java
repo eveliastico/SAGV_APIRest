@@ -1,6 +1,7 @@
 package com.application.SAGVRest.Service.implementation;
 
 import com.application.SAGVRest.Service.IProductoService;
+import com.application.SAGVRest.entidades.CategoriaProducto;
 import com.application.SAGVRest.entidades.Producto;
 import com.application.SAGVRest.persistence.IProductoDAO;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -39,5 +40,10 @@ public class ProductoServiceImpl implements IProductoService {
     @Override
     public void deleteById(Long id) {
         productoDAO.deleteById(id);
+    }
+
+    @Override
+    public List<Producto> findProductosByCategoriaProducto(CategoriaProducto categoriaProducto) {
+        return productoDAO.findProductosByCategoriaProducto(categoriaProducto);
     }
 }

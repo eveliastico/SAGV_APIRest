@@ -2,6 +2,7 @@ package com.application.SAGVRest.controllers.dto;
 
 import com.application.SAGVRest.entidades.ContenidoOrden;
 import com.application.SAGVRest.entidades.Producto;
+import com.fasterxml.jackson.annotation.JsonFormat;
 import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.Data;
@@ -17,6 +18,8 @@ import java.util.List;
 @Builder
 public class OrdenDTO {
     private Long id;
+    // Aquí usamos @JsonFormat para definir el formato en el que se serializa y deserializa la fecha.
+    @JsonFormat(pattern = "yyyy-MM-dd'T'HH:mm:ss")
     private LocalDateTime fechaHora;
     private int numMesa;
     private List<ContenidoOrden> listaContenidosOrdenes = new ArrayList<>();

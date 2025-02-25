@@ -1,5 +1,6 @@
 package com.application.SAGVRest.persistence.implementation;
 
+import com.application.SAGVRest.entidades.CategoriaProducto;
 import com.application.SAGVRest.entidades.Producto;
 import com.application.SAGVRest.persistence.IProductoDAO;
 import com.application.SAGVRest.repository.ProductoRepository;
@@ -38,5 +39,10 @@ public class ProductoDAOImpl implements IProductoDAO {
     @Override
     public void deleteById(Long id) {
         productoRepository.deleteById(id);
+    }
+
+    @Override
+    public List<Producto> findProductosByCategoriaProducto(CategoriaProducto categoriaProducto) {
+        return productoRepository.findProductosByCategoriaProducto(categoriaProducto);
     }
 }

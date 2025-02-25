@@ -2,6 +2,7 @@ package com.application.SAGVRest.controllers;
 
 import com.application.SAGVRest.Service.IProductoService;
 import com.application.SAGVRest.controllers.dto.ProductoDTO;
+import com.application.SAGVRest.entidades.CategoriaProducto;
 import com.application.SAGVRest.entidades.Producto;
 import org.apache.coyote.Response;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -52,6 +53,31 @@ public class ProductoController {
                 .toList();
         return ResponseEntity.ok(productoDTOList);
     }
+
+    @GetMapping("/categorie/{categoriaProducto}")
+    public ResponseEntity<?> findAll(@PathVariable String categoriaProducto) {
+        CategoriaProducto categoriaProductoEnum;
+
+        try {
+            categoriaProductoEnum = CategoriaProducto.valueOf(categoriaProducto.toUpperCase());
+        } catch (IllegalArgumentException e) {
+            return ResponseEntity.badRequest().body("Categoría inválida: " + categoriaProducto);
+        }
+
+        List<ProductoDTO> listaProductosCategoria = productoService.findProductosByCategoriaProducto(categoriaProductoEnum)
+                .stream()
+                .map(producto -> ProductoDTO.builder()
+                        .id(producto.getId())
+                        .descripcion(producto.getDescripcion())
+                        .nombre(producto.getNombre())
+                        .categoriaProducto(producto.getCategoriaProducto())
+                        .precio(producto.getPrecio())
+                        .build())
+                .toList();
+
+        return ResponseEntity.ok(listaProductosCategoria);
+    }
+
 
     @PostMapping("/save")
     public ResponseEntity<?> save(@RequestBody ProductoDTO productoDTO){
