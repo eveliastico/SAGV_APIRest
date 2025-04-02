@@ -2,6 +2,7 @@ package com.application.SAGVRest.Service;
 
 import com.application.SAGVRest.entidades.Orden;
 
+import java.time.LocalDateTime;
 import java.util.List;
 import java.util.Optional;
 
@@ -15,4 +16,7 @@ public interface IOrdenService {
 
     void deleteById(Long id);
 
+    List<Orden> findOrdenByFechaHoraBetween(LocalDateTime fechaMin, LocalDateTime fechaMax);
+
+    List<Orden> findOrdenByNumMesa(int numMesa);
 }

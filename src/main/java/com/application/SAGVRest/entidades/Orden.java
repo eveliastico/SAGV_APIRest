@@ -28,12 +28,16 @@ public class Orden {
     @Column(name = "numero_mesa")
     private int numMesa;
 
+    @Column(name = "pago_pendiente")
+    private boolean pagoPendiente = false;
+
     @JsonManagedReference
     @OneToMany(mappedBy = "orden", cascade = CascadeType.ALL, orphanRemoval = true)
     private List<ContenidoOrden> listaContenidosOrdenes = new ArrayList<>();
 
     public Orden(int numMesa) {
         this.fechaHora = LocalDateTime.now();
+        this.pagoPendiente = false;
         this.numMesa = numMesa;
     }
 

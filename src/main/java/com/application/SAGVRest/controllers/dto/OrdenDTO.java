@@ -22,5 +22,6 @@ public class OrdenDTO {
     @JsonFormat(pattern = "yyyy-MM-dd'T'HH:mm:ss")
     private LocalDateTime fechaHora;
     private int numMesa;
+    private boolean pagoPendiente = false;
     private List<ContenidoOrden> listaContenidosOrdenes = new ArrayList<>();
 }

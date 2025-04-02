@@ -1,9 +1,9 @@
-INSERT INTO orden (id, fecha_hora, numero_mesa) VALUES (1, NOW(), 5);
-INSERT INTO orden (id, fecha_hora, numero_mesa) VALUES (2, NOW(), 3);
-INSERT INTO orden (id, fecha_hora, numero_mesa) VALUES (3, NOW(), 7);
-INSERT INTO orden (id, fecha_hora, numero_mesa) VALUES (4, NOW(), 2);
-INSERT INTO orden (id, fecha_hora, numero_mesa) VALUES (5, NOW(), 6);
-INSERT INTO orden (id, fecha_hora, numero_mesa) VALUES (6, NOW(), 4);
+INSERT INTO orden (id, fecha_hora, numero_mesa, pago_pendiente) VALUES (1, NOW(), 5, fasle);
+INSERT INTO orden (id, fecha_hora, numero_mesa, pago_pendiente) VALUES (2, NOW(), 3, fasle);
+INSERT INTO orden (id, fecha_hora, numero_mesa, pago_pendiente) VALUES (3, NOW(), 7, fasle);
+INSERT INTO orden (id, fecha_hora, numero_mesa, pago_pendiente) VALUES (4, NOW(), 2, fasle);
+INSERT INTO orden (id, fecha_hora, numero_mesa, pago_pendiente) VALUES (5, NOW(), 6, fasle);
+INSERT INTO orden (id, fecha_hora, numero_mesa, pago_pendiente) VALUES (6, NOW(), 4, fasle);
 
 -- Insertando 4 productos
 INSERT INTO producto (id, categoria_producto, descripcion, nombre, precio) VALUES (6, 'PLATILLO', 'Taco de barbacoa', 'Taco', 30.00);

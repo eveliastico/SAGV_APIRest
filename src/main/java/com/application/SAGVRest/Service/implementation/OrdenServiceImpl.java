@@ -6,6 +6,7 @@ import com.application.SAGVRest.persistence.IOrdenDAO;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import java.time.LocalDateTime;
 import java.util.List;
 import java.util.Optional;
 
@@ -34,4 +35,16 @@ public class OrdenServiceImpl implements IOrdenService {
     public void deleteById(Long id) {
         ordenDAO.deleteById(id);
     }
+
+    @Override
+    public List<Orden> findOrdenByFechaHoraBetween(LocalDateTime fechaMin, LocalDateTime fechaMax) {
+        return ordenDAO.findOrdenByFechaHoraBetween(fechaMin, fechaMax);
+    }
+
+    @Override
+    public List<Orden> findOrdenByNumMesa(int numMesa) {
+        return ordenDAO.findOrdenByNumMesa(numMesa);
+    }
+
+
 }
